@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical" android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<TextView
+    android:text="TextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/category"
+    android:textAppearance="@android:style/TextAppearance.Material.Title"
+    android:fontFamily="serif-monospace"
+    android:textSize="36sp"
+    android:textAlignment="center" />
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/description"
+    android:fontFamily="serif-monospace"
+    android:textSize="18sp"
+    android:textAlignment="center"
+    android:text="This will change."/>
+
+<TextView
+    android:text="q num"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/q_num"
+    android:fontFamily="serif-monospace"
+    android:textAlignment="center" />
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:text="Let's Go"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/start"
+        android:layout_gravity="bottom"
+        android:background="@android:color/holo_blue_dark"
+        android:textColor="@android:color/white"
+        android:layout_margin="10px"/>
+</LinearLayout>
+
+</LinearLayout>
