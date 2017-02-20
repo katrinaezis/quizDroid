@@ -14,14 +14,13 @@ public class MainActivity extends AppCompatActivity {
     private String[] descriptions = new String[] {
             "Nerd stuff", "Even nerdier stuff", "The nerdiest of them all"
     };
-    private ListView quiz_cat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        quiz_cat = (ListView) findViewById(R.id.quiz_cat);
+        ListView quiz_cat = (ListView) findViewById(R.id.quiz_cat);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,

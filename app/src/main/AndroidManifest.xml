@@ -15,10 +15,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CatDesc" />
-        <activity android:name=".QuestionActivity" />
-        <activity android:name=".AnswerActivity" />
-        <activity android:name=".FinalScore" />
         <activity android:name=".QuizActivity"></activity>
     </application>
 

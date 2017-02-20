@@ -1,10 +1,7 @@
 package edu.washington.kezis.droidquiz;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,21 +11,13 @@ import android.app.Activity;
 import java.util.ArrayList;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link AnswerFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link AnswerFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class AnswerFragment extends Fragment {
     private int correct;
     private int qNum;
     private question curr;
     private ArrayList<question> QA;
     private Button btn;
-    private String answer;
+    private String chosen;
     QuizActivity parent;
 
     public AnswerFragment() {
@@ -49,7 +38,7 @@ public class AnswerFragment extends Fragment {
             QA = (ArrayList<question>) getArguments().get("QA");
             correct = getArguments().getInt("correct");
             qNum = getArguments().getInt("qNum");
-            String answer = getArguments().getString("answer");
+            chosen = getArguments().getString("chosen");
         }
     }
 
@@ -63,7 +52,7 @@ public class AnswerFragment extends Fragment {
         String actualAnswer = curr.getAnswer();
         correctTxt.setText("The correct answer is: " + actualAnswer);
         TextView userAnswer = (TextView) v.findViewById(R.id.user_answer);
-        userAnswer.setText("Your answer is: " + answer);
+        userAnswer.setText("Your answer is: " + chosen);
         TextView totalScoreView = (TextView) v.findViewById(R.id.total_score);
         btn = (Button) v.findViewById(R.id.next);
         if (qNum <= QA.size() - 2) {
@@ -72,7 +61,7 @@ public class AnswerFragment extends Fragment {
             btn.setText("Finish");
         }
 
-        if (actualAnswer.equals(answer)) {
+        if (actualAnswer.equals(chosen)) {
             correct++;
         }
         int questionNumber = qNum + 1;
@@ -86,7 +75,7 @@ public class AnswerFragment extends Fragment {
                 if (qNum == QA.size()) {
                     parent.finish();
                 } else {
-                    parent.nextQuestion(qNum, correct, QA);
+                    parent.nextQuestion(qNum, correct);
                 }
             }
         });

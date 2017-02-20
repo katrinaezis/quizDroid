@@ -64,7 +64,6 @@ public class QuizActivity extends AppCompatActivity {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         CategoryFragment cf = new CategoryFragment();
-
         Bundle categoryBundle = new Bundle();
         categoryBundle.putString("category", category);
         categoryBundle.putString("description", description);
@@ -74,14 +73,29 @@ public class QuizActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    public void nextQuestion(int qNum, int correct, ArrayList QA) {
+    public void nextQuestion(int qNum, int correct) {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         QuestionFragment af = new QuestionFragment();
+        Bundle questionBundle = new Bundle();
+        questionBundle.putSerializable("QA", QA);
+        questionBundle.putInt("qNum", qNum);
+        questionBundle.putInt("correct", correct);
+        af.setArguments(questionBundle);
+        ft.replace(R.id.act, af);
+        ft.commit();
+    }
+
+    public void answerPage(ArrayList<question> QA, String chosen, int qNum, int correct) {
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        AnswerFragment af = new AnswerFragment();
+
         Bundle answerBundle = new Bundle();
+        answerBundle.putSerializable("QA", QA);
+        answerBundle.putString("chosen", chosen);
         answerBundle.putInt("qNum", qNum);
         answerBundle.putInt("correct", correct);
-        answerBundle.putStringArrayList("QA", QA);
         af.setArguments(answerBundle);
         ft.replace(R.id.act, af);
         ft.commit();

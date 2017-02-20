@@ -4,10 +4,45 @@
     android:layout_height="match_parent"
     tools:context="edu.washington.kezis.droidquiz.QuestionFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/question_and_answers">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/question"
+            android:fontFamily="monospace"
+            android:textSize="24sp"
+            android:text="Question"
+            android:textAlignment="center"
+            android:layout_marginBottom="20px"/>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:id="@+id/radio_group">
+        </RadioGroup>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2">
+
+            <Button
+                android:text="Next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/next"
+                android:layout_weight="1"
+                android:layout_gravity="bottom"
+                android:background="@android:color/holo_blue_dark"
+                android:textColor="@android:color/white"
+                android:layout_margin="5px"/>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>
