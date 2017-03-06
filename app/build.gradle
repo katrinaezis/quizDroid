@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "edu.washington.kezis.droidquiz"
         minSdkVersion 21
@@ -27,4 +27,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.android.support:support-v4:24.2.0'
     testCompile 'junit:junit:4.12'
+    compile 'javax.inject:javax.inject:1'
 }
